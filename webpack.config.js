@@ -3,25 +3,28 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-// // const isProduction = process.env.ENTORNO == "produccion";
-let scssLoaders = ["style-loader", "css-loader","sass-loader"];
-// if (isProduction) {
-//   scssLoaders = ExtractTextPlugin.extract({
-//     fallback: "style-loader",
-//     use: ["css-loader?url=false&sourceMap=true", "sass-loader?sourceMap=true"]
-//   });
-// } else {
-//   scssLoaders = [
-//     "style-loader",
-//     "css-loader?url=false&sourceMap=true",
-//     "sass-loader?sourceMap=true"
-//   ];
-// }
+
+
+
+const isProduction = process.env.ENTORNO == "produccion";
+let scssLoaders = [];
+if (isProduction) {
+  scssLoaders = ExtractTextPlugin.extract({
+    fallback: "style-loader",
+    use: ["css-loader?url=false&sourceMap=true", "sass-loader?sourceMap=true"]
+  });
+} else {
+  scssLoaders = [
+    "style-loader",
+    "css-loader?url=false&sourceMap=true",
+    "sass-loader?sourceMap=true"
+  ];
+}
 
 module.exports = {
-  entry: path.join(__dirname, "src", "entry.js"),
+  entry: path.join(__dirname, "src", "index.js"),
   output: {
-    filename: "bundle.js",
+    filename: "main.js",
     path: path.resolve(__dirname, "dist")
   },
   module: {
@@ -34,6 +37,7 @@ module.exports = {
         test: /\.js$/,
         use: "babel-loader",
         exclude: path.join(__dirname, "node_modules")
+        
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
