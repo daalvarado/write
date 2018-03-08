@@ -1,0 +1,30 @@
+.footer {
+  grid-area: footer;
+  display: grid;
+  width: 100%;
+  color: $white;
+  height: 50px;
+  font-size: 20px;
+  font-family: $Pontano;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  background: $blue;
+  text-align: center;
+}
+.footer-text {
+  align-self: center;
+}
+
+.link-top {
+  align-self: center;
+}
+
+.link-top a {
+  color: $orange;
+  font-weight: 900;
+  color: $white;
+  text-decoration: none;
+}
+
+.link-top a:hover {
+  color: $red;
+}

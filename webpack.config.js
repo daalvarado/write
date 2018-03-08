@@ -1,25 +1,23 @@
 const path = require("path");
 const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin"); 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const autoprefixer = require("autoprefixer");
 
+const postcss = {
+  loader: "postcss-loader",
+  options: {
+    sourceMap:true,
+    plugins() {
+      return [autoprefixer({ browsers: "last 3 versions" })];
+    }
+  }
+};
 
-
-
-const isProduction = process.env.ENTORNO == "produccion";
-let scssLoaders = [];
-if (isProduction) {
-  scssLoaders = ExtractTextPlugin.extract({
-    fallback: "style-loader",
-    use: ["css-loader?url=false&sourceMap=true", "sass-loader?sourceMap=true"]
-  });
-} else {
-  scssLoaders = [
-    "style-loader",
-    "css-loader?url=false&sourceMap=true",
-    "sass-loader?sourceMap=true"
-  ];
-}
+const uglify = new webpack.optimize.UglifyJsPlugin({
+  // eslint-disable-line
+  compress: { warnings: false }
+});
 
 module.exports = {
   entry: path.join(__dirname, "src", "index.js"),
@@ -27,17 +25,22 @@ module.exports = {
     filename: "main.js",
     path: path.resolve(__dirname, "dist")
   },
+  devtool: "source-map",
   module: {
     rules: [
+      
       {
-        test: /\.scss$/,
-        use: scssLoaders
+        test: /\.(s*)css$/,
+        use: ExtractTextPlugin.extract([
+          "css-loader?sourceMap",
+          postcss,
+          "sass-loader?sourceMap"
+        ])
       },
       {
         test: /\.js$/,
         use: "babel-loader",
         exclude: path.join(__dirname, "node_modules")
-        
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
@@ -57,22 +60,45 @@ module.exports = {
     ]
   },
   devServer: {
-    open: true, // abre el navegador por defecto
-    port: 3000, // puerto del servidor web
-    overlay: true, // muestra los errores en pantalla
-    hot: true,
-    contentBase: path.join(__dirname, "src"),
-    watchContentBase: true
+    open: true, //para abrir el navegador
+    port: 3000, //puerto a usar
+    overlay: true, //mostrar pagina de error en el navegador
+    contentBase: [
+      path.join(__dirname, "src"),
+      path.join(__dirname, "src/includes")
+    ], //usa contenidos en la carpeta src
+    watchContentBase: true //recarga la pagina cuando hay cambios en los archivos
+    // hot: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new HtmlWebpackPlugin({
+    new ExtractTextPlugin('style.css'), //creamos archivo css en el output final
+    new HtmlWebpackPlugin(
+    {
+      // creamos archivo html en el output final
       template: path.join(__dirname, "src", "index.html"),
       minify: {
         collapseWhitespace: true
       }
-    }),
-    new ExtractTextPlugin("style.css")
+    })
   ]
 };
+
+
+
+
+// const isProduction = process.env.ENTORNO == "produccion";
+// let scssLoaders = [];
+// if (isProduction) {
+//   scssLoaders = ExtractTextPlugin.extract({
+//     fallback: "style-loader",
+//     use: ["css-loader?url=false&sourceMap=true", 'sass-loader?sourceMap=true']
+//   });
+// } else {
+//   scssLoaders = [
+//     'style-loader',
+//     'css-loader?url=false&sourceMap=true',
+//     'sass-loader?sourceMap=true'
+//   ];
+// }

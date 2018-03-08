@@ -4,9 +4,9 @@
   "description": "KC Practica Frontend Avanzado",
   "main": "index.js",
   "scripts": {
-    "webpack": "set ENTORNO=desarrollo&&webpack",
-    "dev": "set ENTORNO=desarrollo&&webpack --watch",
-    "serve": "set ENTORNO=desarrollo&&webpack-dev-server",
+    "webpack": "webpack",
+    "dev": "webpack --watch",
+    "serve": "webpack-dev-server --inline --hot",
     "json-server": "json-server --watch db.json --port 3001",
     "build": "set ENTORNO=produccion&&webpack -p"
   },
@@ -20,7 +20,9 @@
     "url": "https://github.com/daalvarado/write/issues"
   },
   "homepage": "https://github.com/daalvarado/write#readme",
+  "browserslist": "last 3 versions",
   "devDependencies": {
+    "autoprefixer": "^8.1.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
@@ -35,6 +37,7 @@
     "json-server": "^0.12.1",
     "mime": "^2.2.0",
     "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.1",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.2",
     "webpack": "^3.11.0",

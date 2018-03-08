@@ -1,0 +1,31 @@
+$black: #37393a;
+$white: #f6f0ed;
+$blue: #77b6ea;
+$red: #ee6352;
+$orange: #fcb27f;
+$lightBlue: #68c3d4;
+$yellow: #ffc40e;
+$pink: #ee7297;
+$green: #93ff00;
+$grey: lighten(grey, 40%);
+$shad: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+$grad: linear-gradient(
+  90deg,
+  #48ded4 0%,
+  #a026bf 20%,
+  #e82c75 60%,
+  $yellow 85%,
+  #48ded4 95%
+);
+$verticalGrad: linear-gradient(
+  0,
+  #48ded4 0%,
+  #a026bf 20%,
+  #e82c75 60%,
+  $yellow 85%,
+  #48ded4 95%
+);
+$Oxygen: "Oxygen", sans-serif;
+$Julius: "Julius Sans One", sans-serif;
+$Pontano: "Pontano Sans", sans-serif;
+$Nunito: "Nunito", sans-serif;

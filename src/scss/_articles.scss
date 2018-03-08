@@ -1,0 +1,134 @@
+.container-mid {
+  grid-area: middle;
+  display: grid;
+  grid-gap: 10px;
+}
+
+/* MIDDLE SECTION - LIST OF ARTICLES */
+
+.articles {
+  box-sizing: border-box;
+  display: grid;
+  width: 100%;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: auto;
+}
+
+.article {
+  box-sizing: border-box;
+  display: grid;
+  background: white;
+  justify-content: center;
+
+  width: 100%;
+  max-height: 700px;
+  padding: 5px;
+  border: 0px;
+  text-align: center;
+
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto auto auto 1fr;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+
+  grid-template-areas:
+    "title"
+    "author"
+    "date"
+    "picture"
+    "text";
+}
+
+.article h1 {
+  grid-area: title;
+  /* text-align: center; */
+  color: $blue;
+  margin: 5px;
+  font-family: $Julius;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.authorData {
+  display: grid;
+  grid-area: author;
+  justify-self: center;
+  width: 100%;
+  grid-template-columns: auto auto;
+  grid-template-rows: 120px;
+  /* width: 60%; */
+}
+
+.author {
+  align-self: center;
+  justify-self: right;
+}
+
+.authorPhoto {
+  display: none;
+  height: 100px;
+  border-style: dotted;
+  border-width: 2px;
+  border-color: $lightBlue;
+  align-self: center;
+  border-radius: 15px;
+  display: grid;
+}
+
+.photoBox {
+  display: grid;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: left;
+}
+
+.article h2 {
+  font-size: 15px;
+  margin: 5px;
+
+  font-weight: 600;
+}
+.article p {
+  text-align: justify;
+  text-overflow: ellipsis;
+  margin: 5px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.textbox {
+  grid-area: text;
+  overflow: hidden;
+}
+
+.article img {
+  grid-area: picture;
+  max-width: 100%;
+}
+
+.article h3 {
+  grid-area: date;
+  margin: 5px;
+  font-size: 15px;
+  font-weight: 200;
+}
+
+.pages {
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+  background: white;
+  height: fit-content;
+}
+
+.newArticle {
+  align-self: center;
+  justify-self: center;
+  width: 10%;
+  min-width: 200px;
+  grid-template-columns: 1fr;
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  height: fit-content;
+  color: $black;
+  border-radius: 20px;
+}
