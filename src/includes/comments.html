@@ -1,0 +1,56 @@
+<div class="comments">
+    <h1 class="commentTitle">Comments
+        <button aria-expanded="false" aria-controls="commentsForm">
+            <span class="open">☰</span>
+            <span class="close">×</span>
+        </button>
+    </h1>
+    <div class="commentsList">
+        <div class="commentItem">
+            <div class="commentItemName">Pepe</div>
+            <div class="commentItemEmail">test@hotmail.com</div>
+            <div class="commentItemText">Very nice!</div>
+        </div>
+        <div class="commentItem">
+            <div class="commentItemName">Pepe2</div>
+            <div class="commentItemEmail">test2@hotmail.com</div>
+            <div class="commentItemText">Very nice!2</div>
+        </div>
+        <div class="commentItem">
+            <div class="commentItemName">Pepe3</div>
+            <div class="commentItemEmail">test3@hotmail.com</div>
+            <div class="commentItemText">Very nice!3</div>
+        </div>
+    </div>
+
+    <form novalidate class="commentsForm hidden animated bounceInDown ">
+        <div class="formInput">
+            <h2>Name</h2>
+            <div class="formField">
+                <input class="userName" type="text" id="userName" name="userName" placeholder="Name" required>
+            </div>
+        </div>
+        <div div class="formInput">
+            <h2>Last Name</h2>
+            <div class="formField">
+                <input class="userLastname" type="text" id="userLastname" name="userLastname" placeholder="Last name" required>
+            </div>
+        </div>
+        <div div class="formInput">
+            <h2>Email</h2>
+            <div class="formField">
+                <input class="userEmail" type="email" id="userEmail" name="userEmail" placeholder="Your email" required>
+            </div>
+        </div>
+        <div div class="formInput2">
+            <h2>Comment</h2>
+            <div class="formField">
+                <input class="userComment" type="text" id="userComment" name="userComment" placeholder="Your comment (max 120 words)" required>
+            </div>
+        </div>
+        <div>
+            <button class="commentSubmit" disabled>Add new comment</button>
+        </div>
+    </form>
+
+</div>

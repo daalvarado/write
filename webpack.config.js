@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin"); 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require("autoprefixer");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const postcss = {
   loader: "postcss-loader",
@@ -71,6 +72,7 @@ module.exports = {
     // hot: true,
   },
   plugins: [
+    new UglifyJsPlugin(),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",

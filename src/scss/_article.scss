@@ -9,7 +9,7 @@
   padding-bottom: 8px;
   height: fit-content;
   color: $black;
-  border-radius: 20px;
+  border-radius: 5px;
   background: $yellow;
   border: 0;
   padding: 10px 20px;
@@ -88,17 +88,6 @@ br {
   text-align: justify;
   margin-left: 8px;
   margin-right: 8px;
-}
-
-.comments {
-  display: grid;
-  background: $black;
-  align-items: center;
-  justify-items: center;
-  color: $white;
-  grid-template-columns: 1fr;
-  grid-gap: 10px;
-  font-family: $Julius;
 }
 
 @media (min-width: 610px) {

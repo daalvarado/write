@@ -1,0 +1,179 @@
+.comments {
+  display: grid;
+  background: #37393a;
+  align-items: center;
+  justify-items: center;
+  color: #f6f0ed;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  font-family: "Julius Sans One", sans-serif;
+}
+.comments {
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+.commentsForm {
+  display: grid;
+  box-sizing: border-box;
+  justify-items: center;
+  grid-row-gap: 25px;
+  width: 95%;
+  background: white;
+  padding: 10px;
+  box-shadow: black;
+  transform: rotateX(30);
+}
+
+.commentsForm.hidden {
+  display: none;
+}
+
+.userName {
+  grid-area: userName;
+  height: 35px;
+  border-radius: 5px;
+  display: grid;
+  width: 100%;
+}
+
+.userLastname {
+  grid-area: userLastname;
+  height: 35px;
+  border-radius: 5px;
+  display: grid;
+  width: 100%;
+}
+
+.userEmail {
+  grid-area: userEmail;
+  height: 35px;
+  border-radius: 5px;
+  display: grid;
+  width: 100%;
+}
+
+.userComment {
+  display: grid;
+  grid-area: userComment;
+  height: 150px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.commentSubmit {
+  grid-area: commentSubmit;
+  background: red;
+  color: white;
+  height: 35px;
+  border-radius: 5px;
+}
+.commentsForm h2 {
+  margin: 0;
+  color: orange;
+  font-size: 20px;
+}
+
+.form placeholder {
+  padding: 10px 0;
+  display: block;
+}
+
+.formInput {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  grid-template-columns: 1fr 3fr;
+}
+.formInput2 {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+}
+
+.commentsList {
+  font-family: "Pontano Sans", sans-serif;
+  width: 95%;
+  display: grid;
+  padding: 10px;
+  background: #37393a;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 400px));
+  justify-content: space-evenly;
+  grid-gap: 10px;
+}
+
+.commentItem {
+  display: grid;
+  border-radius: 5px;
+  border: 3px solid yellow;
+  max-width: 400px;
+
+  background: black;
+  margin: 0px;
+  justify-items: center;
+  align-items: center;
+  grid-template-rows: minmax(30px, auto) minmax(30px, auto);
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "comName comEmail"
+    "comText comText";
+}
+
+.commentTitle button {
+  width: 52px;
+  height: 38.4px;
+}
+
+.commentItemName {
+  display: grid;
+
+  width: 100%;
+  text-align: center;
+  grid-area: comName;
+  border-bottom: 1px dotted yellow;
+  border-right: 1px dotted yellow;
+}
+
+.commentItemEmail {
+  display: grid;
+
+  width: 100%;
+  text-align: center;
+  grid-area: comEmail;
+  border-bottom: 1px dotted yellow;
+}
+
+.commentItemText {
+  grid-area: comText;
+}
+.commentTitle {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+@media (min-width: 910px) {
+  .commentsList {
+    justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 610px) {
+  .formInput {
+    grid-template-columns: 1fr;
+  }
+  .commentsForm {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1000px) {
+  .commentsForm {
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+  }
+}
