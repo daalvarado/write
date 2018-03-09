@@ -146,6 +146,15 @@ a.registerButton {
     max-height: 200px;
     transform: rotateX(0);
   }
+  .authorPhoto {
+    height: 100px;
+    border-style: dotted;
+    border-width: 2px;
+    border-color: $lightBlue;
+    align-self: center;
+    border-radius: 15px;
+    display: grid;
+  }
 }
 
 @media (min-width: 800px) {

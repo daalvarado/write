@@ -28,7 +28,6 @@ module.exports = {
   devtool: "source-map",
   module: {
     rules: [
-      
       {
         test: /\.(s*)css$/,
         use: ExtractTextPlugin.extract([
@@ -71,13 +70,29 @@ module.exports = {
     // hot: true,
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new ExtractTextPlugin('style.css'), //creamos archivo css en el output final
-    new HtmlWebpackPlugin(
-    {
-      // creamos archivo html en el output final
+    new ExtractTextPlugin("style.css"), //creamos archivo css en el output final
+    new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "index.html"),
+      minify: {
+        collapseWhitespace: true
+      }
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, "src", "article1.html"),
+      filename: "article1.html",
+      minify: {
+        collapseWhitespace: true
+      }
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, "src", "article2.html"),
+      filename: "article2.html",
       minify: {
         collapseWhitespace: true
       }
