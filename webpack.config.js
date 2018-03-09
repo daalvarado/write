@@ -52,10 +52,11 @@ module.exports = {
         test: /assets.[^img]/,
         use: "file-loader?name=[name].[ext]&useRelativePath=true"
       },
-      {
-        test: /\.(html|ejs)$/,
-        use: ["html-loader", "ejs-html-loader"]
-      }
+     
+      // {
+      //   test: /\.(html|ejs)$/,
+      //   use: ["html-loader", "ejs-html-loader"]
+      // }
     ]
   },
   devServer: {
@@ -72,7 +73,8 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       $: "jquery",
-      jQuery: "jquery"
+      jQuery: "jquery",
+      _: "underscore"
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),

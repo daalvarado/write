@@ -1,4 +1,4 @@
-<%- include('includes/header.html') %>
+<%= require('html-loader!./includes/header.html') %>
 
     <div class="container-mid">
         <article class="fullArticle">
@@ -11,46 +11,51 @@
             </div>
             <div class="articleDate ">March 2, 2018 at 4:00 pm</div>
             <img class="articleImage " src="./assets/images/article2.jpg">
-            <p class="articleText ">Using a <strong>deceptively simple antenna</strong> roughly the size and shape of a dinner table, radio astronomers have made
-                an unprecedented discovery: telltale fingerprints from the earliest stars in the cosmos, pressed into the
-                afterglow of the universe’s birth.</br> That signal, imprinted more deeply into the Big Bang’s afterglow
+            <p class="articleText ">Using a
+                <strong>deceptively simple antenna</strong> roughly the size and shape of a dinner table, radio astronomers have
+                made an unprecedented discovery: telltale fingerprints from the earliest stars in the cosmos, pressed into
+                the afterglow of the universe’s birth.</br> That signal, imprinted more deeply into the Big Bang’s afterglow
                 than scientists expected, could reveal much about the universe’s youth and hint at the nature of dark matter,
                 that mysterious substance that far outweighs all the normal matter in existence. The findings and the theoretical
                 work describing dark matter’s potential role, described in two papers in the journal Nature, excited theoretical
                 and experimental physicists alike.</br> “To my mind … it’s Nobel Prize-worthy twice, if it’s real,” said
                 Avi Loeb, a Harvard University theoretical astrophysicist who was not involved in the research. “Not only
-                did they detect the signal, but it actually is <em>bigger than one can accommodate in the standard cosmological
-                model.</em> And you need new physics in order to explain a signal as big as they detected.”
+                did they detect the signal, but it actually is
+                <em>bigger than one can accommodate in the standard cosmological model.
+                </em> And you need new physics in order to explain a signal as big as they detected.”
                 <br> The first stars in the universe, born on the order of 100 million years after the Big Bang, some 13.8 billion
                 years ago, were not like the stars of today. Because they coalesced out of the soup of neutral hydrogen (and
                 a little helium) that filled the early cosmos, these stars grew large, burned bright and blue and then died
                 quickly, probably surviving around 100 million years, give or take. (Our own sun, by comparison, is already
                 4.6 billion years old and has billions more years to go.)</br> When these short-lived stars went supernova,
                 their explosive deaths forged heavier elements that seeded generations of stars to come. So understanding
-                that stellar vanguard that <strong>brought light to the universe</strong> is key to understanding all the stars in galaxies
-                today. “We knew they should be different, and they really lay the seeds for everything that comes after them,”
-                lead author Judd Bowman, an experimental astrophysicist at Arizona State University, said of these primordial
-                stars. But it’s exceedingly difficult to glimpse actual evidence of those first stars, and thus to get a
-                firm grip on the timeline of events in this epoch of cosmic history. That’s partly because there aren’t a
-                lot of stars to see in this early era.</br> But it’s also because the universe is expanding, and that expansion
-                is stretching that ancient starlight into longer, “redder” wavelengths. That means that even NASA’s Hubble
-                Space Telescope, which has been able to see galaxies from 400 million years or so after the Big Bang, can’t
-                spot them. In a project dubbed EDGES (short for Experiment to Detect Global EoR Signature), Bowman and his
-                colleagues decided to take a different approach. In recent years, astronomers have studied the radiation
-                afterglow of the Big Bang, known as the cosmic microwave background, or CMB. This radiation is subtle but
-                extends over the entire sky, and astronomers have studied its tiny fluctuations in order to understand the
-                underlying structure of the early universe. The scientists realized that the cosmic microwave background,
-                mixed with that soup of neutral hydrogen, might actually hold a subtle fingerprint from those primordial
-                stars. That’s because ultraviolet starlight would have shifted the hydrogen atoms’ energy state, allowing
-                them to absorb a particular wavelength out of the cosmic microwave background. Somewhere in the wavelengths
-                that make up the CMB, they’d find this telltale slice of missing light.</br> <strong>Finding this fingerprint in
-                the universe’s afterglow was easier said than done.</strong> The local universe hurls an overwhelming amount of radio
-                waves at Earth, drowning out this muted signal. On top of that, the scientists were using a fairly simple
-                instrument — <em>a single radio detector roughly 6.4 feet long</em>, about the size and shape of a dining table. With
-                this single antenna, looking for a signal in one particular part of the sky would have been impossible. Instead,
+                that stellar vanguard that
+                <strong>brought light to the universe</strong> is key to understanding all the stars in galaxies today. “We knew
+                they should be different, and they really lay the seeds for everything that comes after them,” lead author
+                Judd Bowman, an experimental astrophysicist at Arizona State University, said of these primordial stars.
+                But it’s exceedingly difficult to glimpse actual evidence of those first stars, and thus to get a firm grip
+                on the timeline of events in this epoch of cosmic history. That’s partly because there aren’t a lot of stars
+                to see in this early era.</br> But it’s also because the universe is expanding, and that expansion is stretching
+                that ancient starlight into longer, “redder” wavelengths. That means that even NASA’s Hubble Space Telescope,
+                which has been able to see galaxies from 400 million years or so after the Big Bang, can’t spot them. In
+                a project dubbed EDGES (short for Experiment to Detect Global EoR Signature), Bowman and his colleagues decided
+                to take a different approach. In recent years, astronomers have studied the radiation afterglow of the Big
+                Bang, known as the cosmic microwave background, or CMB. This radiation is subtle but extends over the entire
+                sky, and astronomers have studied its tiny fluctuations in order to understand the underlying structure of
+                the early universe. The scientists realized that the cosmic microwave background, mixed with that soup of
+                neutral hydrogen, might actually hold a subtle fingerprint from those primordial stars. That’s because ultraviolet
+                starlight would have shifted the hydrogen atoms’ energy state, allowing them to absorb a particular wavelength
+                out of the cosmic microwave background. Somewhere in the wavelengths that make up the CMB, they’d find this
+                telltale slice of missing light.</br>
+                <strong>Finding this fingerprint in the universe’s afterglow was easier said than done.</strong> The local universe
+                hurls an overwhelming amount of radio waves at Earth, drowning out this muted signal. On top of that, the
+                scientists were using a fairly simple instrument —
+                <em>a single radio detector roughly 6.4 feet long</em>, about the size and shape of a dining table. With this
+                single antenna, looking for a signal in one particular part of the sky would have been impossible. Instead,
                 they looked at the average radio spectrum across the entire sky and searched for discrepancies. They also
                 placed their detector in a remote region of Australia, in the hopes of being as far away from human-generated
-                radio waves as possible. <a href="http://cnn.com">Read more about it here</a>.</p>
+                radio waves as possible.
+                <a href="http://cnn.com">Read more about it here</a>.</p>
 
         </article>
         <div class="comments">
@@ -63,4 +68,4 @@
 
 
 
-    <%- include('includes/footer.html') %>
+    <%= require('html-loader!./includes/footer.html') %>
