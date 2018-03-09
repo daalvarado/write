@@ -2,10 +2,14 @@
   "articles": [
     {
       "id": "art1",
-      "title": "Starlight",
-      "artist": "Muse",
-      "cover":
-        "https://img.discogs.com/DrZgy3YwMLm51EM9uEaH9UaUeh4=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1890217-1251332619.jpeg.jpg"
+      "title": "Penguin super-colony spotted from space",
+      "author": "By Jonathan Amos and Victoria Gill",
+      "authorPhoto": "./assets/images/author1.png",
+    "date": "2 March 2018",
+       "image": "./assets/images/article1.jpg",
+       "text": "Scientists have stumbled across a huge group of previously unknown Adélie penguins on the most northerly
+    point of the Antarctic Peninsula.",
+                        "numComments": "5"
     },
     {
       "id": "art2",

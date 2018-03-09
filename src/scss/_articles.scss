@@ -53,14 +53,10 @@
   grid-area: author;
   justify-self: center;
   width: 100%;
-  grid-template-columns: auto auto;
-  grid-template-rows: 120px;
-  /* width: 60%; */
 }
 
 .author {
   align-self: center;
-  justify-self: right;
 }
 
 .authorPhoto {
