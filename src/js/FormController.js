@@ -16,7 +16,8 @@ export class FormController {
 
   addEventListeners() {
     this.addInputListeners();
-    this.addFormSubmitListener();
+  try{  this.addFormSubmitListener();}
+  catch(e){console.log("No comments form on this page. Error: "+e)}
   }
 
   addFormSubmitListener() {
@@ -47,14 +48,14 @@ export class FormController {
   buildCommentData() {
     return {
       userName: this.element.querySelector("#userName").value,
-      userLastName: this.element.querySelector("#userLastname").value,
+      userLastname: this.element.querySelector("#userLastname").value,
       userEmail: this.element.querySelector("#userEmail").value,
       userComment: this.element.querySelector("#userComment").value
     };
   }
 
   addInputListeners() {
-    // en todos los input que hay en el formulario, los valido cuando se pierde el foco
+    try{
     this.element.querySelectorAll("input").forEach(input => {
       input.addEventListener("blur", event => {
         // event.target sería lo mismo que input en este caso
@@ -65,7 +66,8 @@ export class FormController {
         }
         this.checkFormValidity();
       });
-    });
+    });}
+    catch(e) {console.log("No forms on this page. Error: "+e)}
   }
 
   checkFormValidity() {

@@ -28,7 +28,7 @@
   text-align: center;
 
   grid-template-columns: 100%;
-  grid-template-rows: auto auto auto auto 1fr;
+  grid-template-rows: auto auto auto auto 1fr auto;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 
   grid-template-areas:
@@ -36,7 +36,17 @@
     "author"
     "date"
     "picture"
-    "text";
+    "text"
+    "numComments";
+}
+
+.numComments {
+  grid-area: numComments;
+  background: $black;
+  color: $yellow;
+  font-size: 10px;
+  font-family: $Pontano;
+  padding: 3px;
 }
 
 .article h1 {

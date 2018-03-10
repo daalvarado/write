@@ -11,8 +11,9 @@ export class CommentsListController {
   }
 
   showLoadingMessage() {
-    this.element.innerHTML = '<div class="loading">Cargando...</div>';
-  }
+    this.element.innerHTML = '<div class="loading">Cargando...</div>';}
+    
+  
 
   showErrorMessage(error) {
     this.element.innerHTML =
@@ -38,16 +39,18 @@ export class CommentsListController {
   }
 
   loadComments() {
-    this.showLoadingMessage();
+    try{this.showLoadingMessage();}
+    catch(e){console.log("No comments on this page. Error:"+e)};
     this.commentsService
       .list()
       .then(comments => {
+        
         if (comments.length == 0) {
           this.showNoCommentsMessage();
         } else {
-          this.renderComments(comments);
-        }
-      })
+          try{  this.renderComments(comments);
+        } catch(e){console.log("No comments to render on this page. Error: "+e)}
+      }})
       .catch(error => {
         console.error("ERROR RETRIEVING COMMENTS", error);
         this.showErrorMessage(error);

@@ -7,7 +7,7 @@ export class CommentsService {
   async list() {
     const response = await fetch(this.url);
     return response.json();
-    console.log("async list pasado");
+    
   }
 
   async save(comment) {

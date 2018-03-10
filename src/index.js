@@ -12,6 +12,7 @@ import { CommentController } from "./js/CommentController";
 import { FormController } from "./js/FormController";
 import { CommentsService } from "./js/CommentsService";
 import { PubSub } from "pubsub-js";
+import { NumComments } from "./js/NumComments";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 PubSub
   );
   commentsListController.loadComments();
-
+let numComments = new NumComments;
+  numComments.numComments();
   let formController = new FormController(".commentsForm", commentsService, PubSub);
 });

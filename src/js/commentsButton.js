@@ -8,7 +8,8 @@ window.onload=function(){
    comForm.classList.toggle("hidden");
  }
 
- comButton.addEventListener("click", toggleNav2);
+ try{comButton.addEventListener("click", toggleNav2);}
+ catch(e){console.log("No form submit button on this page. Error: "+e)}
 
 }
 
