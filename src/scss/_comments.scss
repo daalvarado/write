@@ -177,3 +177,13 @@
     align-items: center;
   }
 }
+
+input {
+  &.error {
+    border: 1px solid $red;
+    color: $orange;
+  }
+  &:focus {
+    outline-color: $blue;
+  }
+}

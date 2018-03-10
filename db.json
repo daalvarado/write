@@ -48,12 +48,16 @@
   ],
   "comments": [
     {
-      "name": "Paco",
-      "comment": "Very nice"
+      "userName": "Paco",
+      "userLastname": "Gomez",
+      "userEmail": "abc@abc.com",
+      "userComment": "Very nice"
     },
     {
-      "name": "Donald",
-      "comment": "I dont understand"
+      "userName": "Donald",
+      "userLastname": "Duck",
+      "userEmail": "donald@duck.com",
+      "userComment": "I dont understand"
     }
   ]
 }

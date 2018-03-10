@@ -21,7 +21,7 @@ const uglify = new webpack.optimize.UglifyJsPlugin({
 });
 
 module.exports = {
-  entry: path.join(__dirname, "src", "index.js"),
+  entry: ["babel-polyfill", path.join(__dirname, "src", "index.js")],
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist")
