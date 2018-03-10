@@ -23,14 +23,14 @@ export class FormController {
     this.element.addEventListener("submit", event => {
       event.preventDefault();
       if (this.loading) {
-        return; // si se está cargando, no hacemos nada más
+        return; 
       }
       this.setLoading(true);
       let comment = this.buildCommentData();
       this.commentsService
         .save(comment)
         .then(createdComment => {
-          console.log("COMMENT CRETED", createdComment);
+          console.log("COMMENT CREATED", createdComment);
           this.element.reset();
           this.pubSub.publish("comment:created", createdComment);
         })

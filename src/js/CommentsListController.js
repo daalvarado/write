@@ -1,8 +1,7 @@
 export class CommentsListController {
   constructor(selector, commentsService, pubSub) {
     this.element = document.querySelector(selector);
-    console.log(this.element);
-    console.log(selector);
+    
     
     this.commentsService = commentsService;
     pubSub.subscribe("comment:created", (event, comment) => {
@@ -15,17 +14,17 @@ export class CommentsListController {
     this.element.innerHTML = '<div class="loading">Cargando...</div>';
   }
 
-  showErrorMessage() {
+  showErrorMessage(error) {
     this.element.innerHTML =
-      '<div class="error">There has been an error</div>';
+      '<div class="error">There has been an error: <b>'+error+'</b></div>';
   }
 
   showNoCommentsMessage() {
-    this.element.innerHTML = '<div class="info">There are no comments</div>';
+    this.element.innerHTML = '<div class="info">There are no comments yet. Please leave the first comment.</div>';
   }
 
   renderComments(comments) {
-    console.log(comments);
+    
     let html = "";
     for (let comment of comments) {
       html += `<div class="commentItem">
@@ -51,7 +50,7 @@ export class CommentsListController {
       })
       .catch(error => {
         console.error("ERROR RETRIEVING COMMENTS", error);
-        this.showErrorMessage();
+        this.showErrorMessage(error);
       });
   }
 }
