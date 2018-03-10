@@ -25,12 +25,13 @@ export class CommentsListController {
   }
 
   renderComments(comments) {
+    console.log(comments);
     let html = "";
     for (let comment of comments) {
       html += `<div class="commentItem">
-          <div class="commentItemName">${comments.userName} ${comments.userLastname}</div>
-          <div class="commentItemEmail">${comments.userEmail}</div>
-          <div class="commentItemText">${comments.userComment}</div>
+          <div class="commentItemName">${comment.userName} ${comment.userLastname}</div>
+          <div class="commentItemEmail">${comment.userEmail}</div>
+          <div class="commentItemText">${comment.userComment}</div>
         </div>`;
         
     }

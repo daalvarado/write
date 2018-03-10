@@ -72,7 +72,7 @@ module.exports = {
     // hot: true,
   },
   plugins: [
-    new UglifyJsPlugin(),
+    
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
@@ -82,24 +82,15 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new ExtractTextPlugin("style.css"), //creamos archivo css en el output final
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "src", "index.html"),
-      minify: {
-        collapseWhitespace: true
-      }
+      template: path.join(__dirname, "src", "index.html")
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "article1.html"),
-      filename: "article1.html",
-      minify: {
-        collapseWhitespace: true
-      }
+      filename: "article1.html"
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "article2.html"),
-      filename: "article2.html",
-      minify: {
-        collapseWhitespace: true
-      }
+      filename: "article2.html"
     })
   ]
 };
