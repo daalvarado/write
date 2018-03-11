@@ -8,7 +8,8 @@
     "dev": "webpack --watch",
     "serve": "webpack-dev-server --inline --hot",
     "json-server": "json-server --watch db.json --port 3001",
-    "build": "set ENTORNO=produccion&&webpack -p",
+
+    "webpack-new": "webpack --config webpack.dev.js",
     "build-new": "webpack --config webpack.prod.js",
     "serve-new": "webpack-dev-server --inline --hot --config webpack.dev.js"
   },
