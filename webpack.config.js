@@ -45,11 +45,16 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        use: [
-          "file-loader?name=[name].[ext]&useRelativePath=true",
-          "image-webpack-loader"
-        ]
+        loader: 'image-webpack-loader',
+        enforce: 'pre',
+      
       },
+      {
+        test: /\.(jpe?g|png|gif)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10 * 1024,
+      }},
       {
         test: /assets.[^img]/,
         use: "file-loader?name=[name].[ext]&useRelativePath=true"

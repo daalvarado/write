@@ -68,13 +68,13 @@ export class FormController {
         this.checkTextAreaValidity();
         this.checkFormValidity();
       })}
-      else {
-        console.log("abajp"+input.tagName);
         
         
-      }})}
-      catch(e) {console.log("No forms on this page. Error: "+e)}
-    }
+        
+      })}
+      catch(e) {console.log("No forms on this page. Error: "+e)}}
+
+    
     
 
 checkTextAreaValidity() {
@@ -100,9 +100,9 @@ checkTextAreaValidity() {
         // if ($("#userName").hasClass("error") || $("#userLastname").hasClass("error") || $("#userEmail").hasClass("error") || $("#userName").is(':empty') || $("#userLastname").is(':empty') || $("#userEmail").is(':empty') ){
         //   button.disabled = true;
         // } else {
-          button.disabled = false;
-        }
-      })
+        //   button.disabled = false;
+        // }}
+      }})
     }catch(e) {console.log("No text forms on this page. Error: "+e)}
   }
   
