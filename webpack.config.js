@@ -38,32 +38,23 @@ module.exports = {
           "sass-loader?sourceMap"
         ])
       },
+      
       {
         test: /\.js$/,
         use: "babel-loader",
         exclude: path.join(__dirname, "node_modules")
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
-        loader: 'image-webpack-loader',
-        enforce: 'pre',
-      
-      },
-      {
-        test: /\.(jpe?g|png|gif)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10 * 1024,
-      }},
-      {
         test: /assets.[^img]/,
         use: "file-loader?name=[name].[ext]&useRelativePath=true"
       },
-     
-      // {
-      //   test: /\.(html|ejs)$/,
-      //   use: ["html-loader", "ejs-html-loader"]
-      // }
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          "file-loader?name=[name].[ext]&useRelativePath=true",
+          "image-webpack-loader",
+        ]
+      }
     ]
   },
   devServer: {
@@ -78,7 +69,6 @@ module.exports = {
     // hot: true,
   },
   plugins: [
-    
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",

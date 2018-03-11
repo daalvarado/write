@@ -6,7 +6,7 @@ export class CommentsListController {
 
     this.commentsService = commentsService;
     pubSub.subscribe("comment:created", (event, comment) => {
-      console.log("CommentsListController", comment);
+      
       this.loadComments();
     });
   }

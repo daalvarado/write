@@ -15,7 +15,7 @@ export class CommentsService {
   }
 
   async save(comment) {
-    console.log(comment);
+    
     const response = await fetch(this.url, {
       method: "post",
       body: JSON.stringify(comment),

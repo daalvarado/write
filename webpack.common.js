@@ -2,23 +2,10 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const autoprefixer = require("autoprefixer");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
-const postcss = {
-  loader: "postcss-loader",
-  options: {
-    sourceMap: true,
-    plugins() {
-      return [autoprefixer({ browsers: "last 3 versions" })];
-    }
-  }
-};
+const moment = require("moment");
 
-const uglify = new webpack.optimize.UglifyJsPlugin({
-  // eslint-disable-line
-  compress: { warnings: false }
-});
+
 
 module.exports = {
   entry: ["babel-polyfill", path.join(__dirname, "src", "index.js")],
@@ -29,14 +16,6 @@ module.exports = {
   devtool: "source-map",
   module: {
     rules: [
-      {
-        test: /\.(s*)css$/,
-        use: ExtractTextPlugin.extract([
-          "css-loader?sourceMap",
-          postcss,
-          "sass-loader?sourceMap"
-        ])
-      },
       {
         test: /\.js$/,
         use: "babel-loader",
@@ -49,38 +28,33 @@ module.exports = {
           "image-webpack-loader"
         ]
       },
+      
       {
         test: /assets.[^img]/,
         use: "file-loader?name=[name].[ext]&useRelativePath=true"
       }
-
-      // {
-      //   test: /\.(html|ejs)$/,
-      //   use: ["html-loader", "ejs-html-loader"]
-      // }
     ]
   },
   devServer: {
-    open: true, //para abrir el navegador
-    port: 3000, //puerto a usar
-    overlay: true, //mostrar pagina de error en el navegador
+    open: true,
+    port: 3000,
+    overlay: true,
     contentBase: [
       path.join(__dirname, "src"),
       path.join(__dirname, "src/includes")
-    ], //usa contenidos en la carpeta src
-    watchContentBase: true //recarga la pagina cuando hay cambios en los archivos
-    // hot: true,
+    ],
+    watchContentBase: true
   },
   plugins: [
-    new UglifyJsPlugin(),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
-      _: "underscore"
+      _: "underscore",
+      moment: "moment"
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new ExtractTextPlugin("style.css"), //creamos archivo css en el output final
+    new ExtractTextPlugin("style.css"),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "index.html"),
       minify: {
@@ -103,18 +77,3 @@ module.exports = {
     })
   ]
 };
-
-// const isProduction = process.env.ENTORNO == "produccion";
-// let scssLoaders = [];
-// if (isProduction) {
-//   scssLoaders = ExtractTextPlugin.extract({
-//     fallback: "style-loader",
-//     use: ["css-loader?url=false&sourceMap=true", 'sass-loader?sourceMap=true']
-//   });
-// } else {
-//   scssLoaders = [
-//     'style-loader',
-//     'css-loader?url=false&sourceMap=true',
-//     'sass-loader?sourceMap=true'
-//   ];
-// }

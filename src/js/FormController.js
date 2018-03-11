@@ -57,7 +57,7 @@ export class FormController {
   addInputListeners() {
     try{
       this.element.querySelectorAll("input, textarea").forEach((input) => {
-      console.log("arriba"+input.tagName+input);
+      
         if (input.tagName == "INPUT"){
         input.addEventListener("blur", event => {
         if (input.checkValidity() == false) {
@@ -83,7 +83,7 @@ checkTextAreaValidity() {
     textA.addEventListener("blur", event => {
       let textAcontents=textA.value.trim();
       let button = this.element.querySelector("button");
-      console.log(textAcontents);
+      
       if (!textAcontents) {
         textA.classList.add("error");
         button.disabled = true;
