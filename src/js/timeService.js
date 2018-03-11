@@ -3,7 +3,7 @@ export class TimeService{
 timeStamp() {
     $('.timestamp').each(function (index,value){
 let timePassed=moment($(this)[0].innerText).fromNow();
-$(this).siblings(".timeCalc").html(timePassed)
+$(this).siblings(".timeCalc").html("Published " + timePassed)
     })
 
 }}
