@@ -12,7 +12,7 @@ timeStamp() {
         let daysAgo = now.diff(pubDate, "days");
         let hourAgo = now.diff(pubDate, "hours")
         if (hourAgo>168) {
-            let a = moment(pubDate).format("MMMM D, YYYY");
+            let a = moment(pubDate).format("MMMM D, YYYY hh:mm:ss A");
             $(this)
               .siblings(".timeCalc")
               .html("Published on " + a);
