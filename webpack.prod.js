@@ -17,12 +17,7 @@ const postcss = {
 
 module.exports = merge(common, {
     plugins: [
-    new UglifyJsPlugin({
-      
-      sourceMap: false,
-      uglifyOptions: {
-          warnings: false,}
-    }),
+    new webpack.optimize.UglifyJsPlugin(),
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production')})
   ],
@@ -31,7 +26,7 @@ module.exports = merge(common, {
       {
         test: /\.(s*)css$/,
         use: ExtractTextPlugin.extract([
-          "css-loader?sourceMap=false",
+          "css-loader?sourceMap=false&minimize=true",
           postcss,
           "sass-loader?sourceMap=false"
         ])
