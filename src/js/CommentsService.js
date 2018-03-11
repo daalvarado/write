@@ -5,8 +5,12 @@ export class CommentsService {
   }
 
   async list() {
+    try{
     const response = await fetch(this.url);
-    return response.json();
+    return response.json();}
+    catch(e) {
+      console.log("There was an error fetching data:"+e);
+    }
     
   }
 

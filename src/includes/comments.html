@@ -13,13 +13,15 @@
         <div class="formInput">
             <h2>Name</h2>
             <div class="formField">
-                <input class="userName" type="text" id="userName" name="userName" placeholder="Name" required>
+                <input class="userName" type="text" id="userName" name="userName" placeholder="Name (between 3 and 20 characters)" minlength="3"
+                    maxlength="20" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"required>
             </div>
         </div>
         <div div class="formInput">
             <h2>Last Name</h2>
             <div class="formField">
-                <input class="userLastname" type="text" id="userLastname" name="userLastname" placeholder="Last name" required>
+                <input class="userLastname" type="text" id="userLastname" name="userLastname" placeholder="Last name (between 3 and 20 characters)"
+                    minlength="3" maxlength="20" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
             </div>
         </div>
         <div div class="formInput">
@@ -31,11 +33,11 @@
         <div div class="formInput2">
             <h2>Comment</h2>
             <div class="formField">
-                <textarea class="userComment" form="commentsForm" id="userComment" name="userComment" required>Your comment (max 120 words)</textarea>
+                <textarea class="userComment" form="commentsForm" id="userComment" name="userComment" placeholder="Your comment (max 120 words)" required></textarea>
             </div>
         </div>
         <div>
-            <button class="commentSubmit">Add new comment</button>
+            <button disabled class="commentSubmit">Add new comment</button>
         </div>
     </form>
 

@@ -1,18 +1,22 @@
 export class NumComments {
 
 async getComments(){
+   
+    try{
     const commentsArray=await fetch("http://localhost:3001/comments/");
-    return commentsArray.json();
+return commentsArray.json();}
+    catch(e) {
+        console.log("Error fetching data: "+e);  
+    }
+    
 }    
 
 numComments(){
-    this.getComments().then(v => 
-                                  $("div.numComments").html("Comments: " + v.length)   
+    this.getComments().then
+    (v => 
+    $("div.numComments").html("Comments: " + v.length)   
     )
 }
-
-
-
 }
 
 

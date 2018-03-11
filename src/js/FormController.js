@@ -9,7 +9,7 @@ export class FormController {
 
   setLoading(loading) {
     this.loading = loading;
-    this.element.querySelectorAll("input, button").forEach(item => {
+    this.element.querySelectorAll("input, button, textarea").forEach(item => {
       item.disabled = loading;
     });
   }
@@ -56,25 +56,65 @@ export class FormController {
 
   addInputListeners() {
     try{
-    this.element.querySelectorAll("input").forEach(input => {
-      input.addEventListener("blur", event => {
-        // event.target sería lo mismo que input en este caso
+      this.element.querySelectorAll("input, textarea").forEach((input) => {
+      console.log("arriba"+input.tagName+input);
+        if (input.tagName == "INPUT"){
+        input.addEventListener("blur", event => {
         if (input.checkValidity() == false) {
           input.classList.add("error");
         } else {
-          input.classList.remove("error");
+          input.classList.remove("error"); 
         }
+        this.checkTextAreaValidity();
         this.checkFormValidity();
-      });
-    });}
-    catch(e) {console.log("No forms on this page. Error: "+e)}
+      })}
+      else {
+        console.log("abajp"+input.tagName);
+        
+        
+      }})}
+      catch(e) {console.log("No forms on this page. Error: "+e)}
+    }
+    
+
+checkTextAreaValidity() {
+  try{
+    const textA = this.element.querySelector("textarea");
+    textA.addEventListener("blur", event => {
+      let textAcontents=textA.value.trim();
+      let button = this.element.querySelector("button");
+      console.log(textAcontents);
+      if (!textAcontents) {
+        textA.classList.add("error");
+        button.disabled = true;
+      } else if (textAcontents.split(" ").length > 5) {
+          textA.classList.add("error");
+          button.disabled = true;
+        } 
+      else if(
+        textAcontents.length == 0){
+          textA.classList.add("error");
+          button.disabled = true;
+        } else {
+        textA.classList.remove("error");
+        // if ($("#userName").hasClass("error") || $("#userLastname").hasClass("error") || $("#userEmail").hasClass("error") || $("#userName").is(':empty') || $("#userLastname").is(':empty') || $("#userEmail").is(':empty') ){
+        //   button.disabled = true;
+        // } else {
+          button.disabled = false;
+        }
+      })
+    }catch(e) {console.log("No text forms on this page. Error: "+e)}
   }
+  
+
+
 
   checkFormValidity() {
     let button = this.element.querySelector("button");
-    if (this.element.checkValidity()) {
+    if (this.element.checkValidity() && $("textarea").val().length != 0) {
       button.disabled = false;
     } else {
+      
       button.disabled = true;
     }
   }

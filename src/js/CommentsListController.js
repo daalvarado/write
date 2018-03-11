@@ -3,6 +3,7 @@ export class CommentsListController {
     this.element = document.querySelector(selector);
     
     
+
     this.commentsService = commentsService;
     pubSub.subscribe("comment:created", (event, comment) => {
       console.log("CommentsListController", comment);
@@ -16,8 +17,9 @@ export class CommentsListController {
   
 
   showErrorMessage(error) {
-    this.element.innerHTML =
-      '<div class="error">There has been an error: <b>'+error+'</b></div>';
+    try{this.element.innerHTML =
+      '<div class="error">There has been an error: <b>'+error+'</b></div>';}
+      catch(e){console.log("There has been an error: "+e)}
   }
 
   showNoCommentsMessage() {
@@ -38,6 +40,8 @@ export class CommentsListController {
     this.element.innerHTML = html;
   }
 
+
+
   loadComments() {
     try{this.showLoadingMessage();}
     catch(e){console.log("No comments on this page. Error:"+e)};
@@ -52,7 +56,7 @@ export class CommentsListController {
         } catch(e){console.log("No comments to render on this page. Error: "+e)}
       }})
       .catch(error => {
-        console.error("ERROR RETRIEVING COMMENTS", error);
+        console.log("There was an Error Retrieving Comments", error);
         this.showErrorMessage(error);
       });
   }

@@ -15,6 +15,7 @@ import { PubSub } from "pubsub-js";
 import { NumComments } from "./js/NumComments";
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
   let commentController = new CommentController("body", PubSub);
     let commentsService = new CommentsService("http://localhost:3001/comments/");
